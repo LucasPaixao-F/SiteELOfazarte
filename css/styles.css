@@ -1,0 +1,232 @@
+/* =================DEFINIÇÕES GERAIS================= */
+:root {
+	--cor-verde-musgo: #1a4d2e;
+	--cor-fundo-bege: #fdfdf9;
+	--cor-branco: #ffffff;
+	--cor-texto: #333333;
+	--espessura-borda: 4px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--cor-verde-musgo);
+	color: var(--cor-texto);
+
+	/* --- LAYOUT TELA CHEIA --- */
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 40px;
+	padding: 40px;
+	min-height: 100vh;
+}
+
+header.hero-section,
+main.container {
+	grid-column: 1;
+	/* Garante que o container preencha a largura disponível */
+	width: 100%;
+}
+
+/* =================NAVEGAÇÃO LATERAL DIREITA================= */
+nav.main-nav {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	align-self: start;
+	padding-top: 20px;
+
+	/* AJUSTE: Fixa a posição do menu enquanto rola a página (opcional, fica elegante) */
+	position: sticky;
+	top: 40px;
+}
+
+nav.main-nav ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 25px; /* Mais espaço entre botões */
+	align-items: center;
+}
+
+nav.main-nav a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 15px 20px; /* Botões um pouco maiores */
+	text-decoration: none;
+	color: var(--cor-verde-musgo);
+	font-weight: bold;
+	font-size: 1.1rem; /* Texto do menu maior */
+	background-color: var(--cor-branco);
+	border: 3px solid var(--cor-verde-musgo);
+	border-radius: 50px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar do verde */
+}
+
+nav.main-nav a:hover {
+	background-color: #143d24;
+	color: var(--cor-branco);
+	border-color: #143d24;
+	transform: scale(1.05); /* Pequeno efeito de zoom ao passar o mouse */
+}
+
+/* =================CABEÇALHO================= */
+.hero-section {
+	background-color: var(--cor-branco);
+	border: var(--espessura-borda) solid var(--cor-verde-musgo);
+	padding: 60px 40px; /* Mais espaço interno */
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/* AJUSTE DE PROPORÇÃO: Logo maior */
+.logo-image {
+	max-width: 350px; /* Aumentei de 250 para 350px */
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto 30px auto;
+}
+
+.artist-name {
+	color: var(--cor-verde-musgo);
+	font-size: 1.5rem; /* Fonte maior */
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.artist-titles,
+.main-titles,
+.tagline {
+	color: var(--cor-verde-musgo);
+	font-size: 1.2rem; /* Texto de apoio maior */
+	line-height: 1.6;
+}
+
+/* =================CONTEÚDO PRINCIPAL================= */
+.featured-artwork,
+.description-text {
+	background-color: var(--cor-branco);
+	border: var(--espessura-borda) solid var(--cor-verde-musgo);
+	padding: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+/* AJUSTE DE PROPORÇÃO: Texto descritivo maior e mais legível */
+.description-text {
+	padding: 60px 40px;
+	min-height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.description-text article p {
+	font-size: 1.35rem; /* Texto bem legível */
+	color: var(--cor-verde-musgo);
+	line-height: 1.8; /* Espaçamento entre linhas confortável para leitura em tela larga */
+	max-width: 1200px; /* Impede que a linha de texto fique infinita em monitores gigantes */
+	margin: 0 auto;
+}
+
+/* AJUSTE DE PROPORÇÃO: Imagem da obra */
+.artwork-placeholder img {
+	max-width: 100%;
+
+	/* Agora a altura se adapta à altura da tela (viewport height) */
+	max-height: 85vh;
+
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
+}
+
+/* =================GALERIA================= */
+#galeria {
+	text-align: center;
+}
+
+.gallery-title {
+	display: inline-block;
+	padding: 20px 80px; /* Botão maior */
+	border: 3px solid var(--cor-verde-musgo);
+	border-radius: 50px;
+	background-color: var(--cor-branco);
+	color: var(--cor-verde-musgo);
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 50px;
+}
+
+.gallery-filters {
+	margin-bottom: 40px;
+}
+
+.filter-item {
+	display: inline-block;
+	margin: 0 15px;
+	padding: 12px 30px; /* Filtros maiores */
+	background-color: var(--cor-branco);
+	border: 2px solid var(--cor-verde-musgo);
+	border-radius: 30px;
+	color: var(--cor-verde-musgo);
+	font-size: 1.1rem;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.filter-item:hover {
+	background-color: #e8f5e9; /* Um verde bem clarinho no hover */
+}
+
+.series-container {
+	text-align: left;
+}
+
+.series-name {
+	color: var(--cor-branco);
+	margin-bottom: 30px;
+	font-size: 2rem; /* Título da série bem grande */
+	text-transform: uppercase;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Linha sutil abaixo do título */
+	padding-bottom: 10px;
+	display: inline-block;
+}
+
+/* =================RESPONSIVIDADE (CELULAR)================= */
+/* Imprescindível agora que usamos tela cheia: */
+@media (max-width: 900px) {
+	body {
+		grid-template-columns: 1fr; /* Vira uma coluna só */
+		padding: 20px;
+	}
+
+	nav.main-nav {
+		grid-column: 1;
+		grid-row: 1; /* Menu vai para o topo */
+		position: relative;
+		top: 0;
+		margin-bottom: 30px;
+	}
+
+	nav.main-nav ul {
+		flex-direction: row; /* Botões lado a lado no celular */
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	nav.main-nav a {
+		width: auto; /* Largura automática no celular */
+	}
+}

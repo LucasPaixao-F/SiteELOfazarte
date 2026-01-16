@@ -1,232 +1,235 @@
-/* =================DEFINIÇÕES GERAIS================= */
+/* --- 1. IMPORTAÇÃO DE FONTES --- */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* --- 2. VARIÁVEIS (A Paleta do Artista) --- */
 :root {
-	--cor-verde-musgo: #1a4d2e;
-	--cor-fundo-bege: #fdfdf9;
-	--cor-branco: #ffffff;
-	--cor-texto: #333333;
-	--espessura-borda: 4px;
+	/* Cores: Tons terrosos suaves e neutros para destacar as obras */
+	--bg-color: #f9f9f7; /* Um off-white (casca de ovo), menos cansativo que branco puro */
+	--text-color: #333333; /* Cinza escuro para texto */
+	--accent-color: #8c7b75; /* Um tom taupe/marrom suave para detalhes */
+	--brand-color: #2c3e50; /* Azul escuro profundo para títulos */
+	--white: #ffffff;
 }
 
+/* --- 3. RESET BÁSICO --- */
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	box-sizing: border-box; /* Garante que bordas não aumentem o tamanho dos elementos */
 }
 
 body {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	background-color: var(--cor-verde-musgo);
-	color: var(--cor-texto);
-
-	/* --- LAYOUT TELA CHEIA --- */
-	display: grid;
-	grid-template-columns: 1fr 300px;
-	gap: 40px;
-	padding: 40px;
-	min-height: 100vh;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: "Lato", sans-serif;
+	line-height: 1.6; /* Bom espaçamento entre linhas */
 }
 
-header.hero-section,
-main.container {
-	grid-column: 1;
-	/* Garante que o container preencha a largura disponível */
-	width: 100%;
+h1,
+h2,
+h3 {
+	font-family: "Playfair Display", serif; /* Fonte elegante para títulos */
+	color: var(--brand-color);
+	margin-bottom: 1rem;
 }
 
-/* =================NAVEGAÇÃO LATERAL DIREITA================= */
-nav.main-nav {
-	grid-column: 2;
-	grid-row: 1 / span 2;
-	align-self: start;
-	padding-top: 20px;
-
-	/* AJUSTE: Fixa a posição do menu enquanto rola a página (opcional, fica elegante) */
-	position: sticky;
-	top: 40px;
+img {
+	max-width: 100%; /* Garante que imagens nunca estourem a tela */
+	display: block;
+	height: auto;
 }
 
-nav.main-nav ul {
+/* --- NAVEGAÇÃO --- */
+.main-nav {
+	background-color: var(--white);
+	padding: 1rem 0;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); /* Sombra muito sutil */
+	position: sticky; /* Menu fica fixo no topo ao rolar */
+	top: 0;
+	z-index: 1000;
+}
+
+.main-nav ul {
 	list-style: none;
 	display: flex;
-	flex-direction: column;
-	gap: 25px; /* Mais espaço entre botões */
-	align-items: center;
+	justify-content: center; /* Centraliza os links */
+	gap: 30px; /* Espaço entre os links */
 }
 
-nav.main-nav a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	padding: 15px 20px; /* Botões um pouco maiores */
+.main-nav a {
 	text-decoration: none;
-	color: var(--cor-verde-musgo);
-	font-weight: bold;
-	font-size: 1.1rem; /* Texto do menu maior */
-	background-color: var(--cor-branco);
-	border: 3px solid var(--cor-verde-musgo);
-	border-radius: 50px;
-	transition: all 0.3s ease;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar do verde */
+	color: var(--text-color);
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	letter-spacing: 1px; /* Espacinho entre letras fica chique */
+	transition: color 0.3s;
 }
 
-nav.main-nav a:hover {
-	background-color: #143d24;
-	color: var(--cor-branco);
-	border-color: #143d24;
-	transform: scale(1.05); /* Pequeno efeito de zoom ao passar o mouse */
+.main-nav a:hover {
+	color: var(--accent-color);
 }
 
-/* =================CABEÇALHO================= */
-.hero-section {
-	background-color: var(--cor-branco);
-	border: var(--espessura-borda) solid var(--cor-verde-musgo);
-	padding: 60px 40px; /* Mais espaço interno */
+/* --- CABEÇALHO (HEADER) --- */
+
+.header-section {
 	text-align: center;
-	margin-bottom: 40px;
+	padding: 4rem 1rem;
+	background-color: var(--white);
+	border-radius: 250px;
 }
 
-/* AJUSTE DE PROPORÇÃO: Logo maior */
+.brand-title {
+	font-size: 4.2rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--accent-color);
+	margin-bottom: 4rem;
+}
+
 .logo-image {
-	max-width: 350px; /* Aumentei de 250 para 350px */
-	width: 100%;
-	height: auto;
-	display: block;
-	margin: 0 auto 30px auto;
+	width: 350px;
+	height: 350px;
+	object-fit: cover;
+	border-radius: 30%; /* Deixa a logo redonda */
+	margin: 0 auto 1.5rem auto; /* Centraliza a imagem */
+	border: 3px solid var(--bg-color); /* Bordinha sutil */
 }
 
 .artist-name {
-	color: var(--cor-verde-musgo);
-	font-size: 1.5rem; /* Fonte maior */
-	margin-bottom: 15px;
-	font-weight: bold;
+	font-size: 3.5rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
 }
 
-.artist-titles,
-.main-titles,
-.tagline {
-	color: var(--cor-verde-musgo);
-	font-size: 1.2rem; /* Texto de apoio maior */
-	line-height: 1.6;
+.artist-titles {
+	font-size: 1.5rem;
+	color: var(--accent-color);
+	font-style: italic;
+	margin-bottom: 2rem;
 }
 
-/* =================CONTEÚDO PRINCIPAL================= */
-.featured-artwork,
-.description-text {
-	background-color: var(--cor-branco);
-	border: var(--espessura-borda) solid var(--cor-verde-musgo);
-	padding: 40px;
-	margin-bottom: 40px;
+.main-titles h3 {
+	font-size: 1.8rem;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+/* --- LAYOUT GERAL --- */
+.container {
+	max-width: 1200px;
+	margin: 0 auto; /* Centraliza o site em telas grandes */
+	padding: 0 20px;
+}
+
+/* --- OBRA DESTAQUE --- */
+.featured-artwork {
+	margin: 3rem 0;
 	text-align: center;
 }
 
-/* AJUSTE DE PROPORÇÃO: Texto descritivo maior e mais legível */
+.featured-artwork img {
+	margin: 0 auto;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+}
+
+/* --- TEXTO SOBRE --- */
 .description-text {
-	padding: 60px 40px;
-	min-height: 250px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	max-width: 800px; /* Texto muito largo é ruim de ler */
+	margin: 0 auto 4rem auto;
+	text-align: justify;
+	padding: 2rem;
+	background-color: var(--white);
+	border-radius: 8px; /* Cantos levemente arredondados */
 }
 
-.description-text article p {
-	font-size: 1.35rem; /* Texto bem legível */
-	color: var(--cor-verde-musgo);
-	line-height: 1.8; /* Espaçamento entre linhas confortável para leitura em tela larga */
-	max-width: 1200px; /* Impede que a linha de texto fique infinita em monitores gigantes */
-	margin: 0 auto;
-}
-
-/* AJUSTE DE PROPORÇÃO: Imagem da obra */
-.artwork-placeholder img {
-	max-width: 100%;
-
-	/* Agora a altura se adapta à altura da tela (viewport height) */
-	max-height: 85vh;
-
-	width: auto;
-	height: auto;
-	display: block;
-	margin: 0 auto;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
-}
-
-/* =================GALERIA================= */
-#galeria {
+.description-text h2 {
 	text-align: center;
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
 }
 
-.gallery-title {
-	display: inline-block;
-	padding: 20px 80px; /* Botão maior */
-	border: 3px solid var(--cor-verde-musgo);
-	border-radius: 50px;
-	background-color: var(--cor-branco);
-	color: var(--cor-verde-musgo);
-	font-size: 1.2rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-bottom: 50px;
+.description-text p {
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	color: #555;
 }
 
+/* --- GALERIA --- */
+.gallery-section {
+	padding-bottom: 4rem;
+}
+
+.gallery-title,
+.series-name,
+h2[class~="Processo"] {
+	/* Seleciona o h2 que tem a classe Processo */
+	text-align: center;
+	margin: 3rem 0 1.5rem 0;
+	position: relative;
+}
+
+/* Filtros (Botões simulados) */
 .gallery-filters {
-	margin-bottom: 40px;
+	text-align: center;
+	margin-bottom: 2rem;
 }
 
 .filter-item {
 	display: inline-block;
-	margin: 0 15px;
-	padding: 12px 30px; /* Filtros maiores */
-	background-color: var(--cor-branco);
-	border: 2px solid var(--cor-verde-musgo);
-	border-radius: 30px;
-	color: var(--cor-verde-musgo);
-	font-size: 1.1rem;
+	padding: 8px 20px;
+	margin: 0 5px;
 	cursor: pointer;
-	transition: background 0.3s;
+	border: 1px solid var(--accent-color);
+	color: var(--accent-color);
+	border-radius: 20px;
+	transition: all 0.3s;
 }
 
 .filter-item:hover {
-	background-color: #e8f5e9; /* Um verde bem clarinho no hover */
+	background-color: var(--accent-color);
+	color: var(--white);
 }
 
-.series-container {
-	text-align: left;
+/* --- GRID DAS OBRAS --- */
+.series-conexao-container,
+.series-terapeutica-container,
+.fotos-galeria {
+	display: grid;
+	/* Cria colunas automáticas com largura mínima de 280px */
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem; /* Espaço entre as obras */
+	margin-bottom: 3rem;
 }
 
-.series-name {
-	color: var(--cor-branco);
-	margin-bottom: 30px;
-	font-size: 2rem; /* Título da série bem grande */
+.artwork-item {
+	background: var(--white);
+	padding: 10px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	transition: transform 0.3s;
+}
+
+.artwork-item:hover {
+	transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+}
+
+.image-box {
+	width: 100%;
+	height: 250px; /* Altura fixa para manter o padrão */
+	background-color: #eee; /* Cor de fundo enquanto a imagem não carrega */
+	margin-bottom: 10px;
+	object-fit: cover; /* Se tiver imagem real dentro, use isso no img */
+}
+
+.artwork-info {
+	text-align: center;
+	font-size: 0.9rem;
+	text-transform: capitalize;
+}
+
+/* Destaque para Vendido */
+.artwork-item.sold .artwork-info strong {
+	color: #e74c3c; /* Vermelho suave */
+	font-size: 0.8rem;
 	text-transform: uppercase;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Linha sutil abaixo do título */
-	padding-bottom: 10px;
-	display: inline-block;
-}
-
-/* =================RESPONSIVIDADE (CELULAR)================= */
-/* Imprescindível agora que usamos tela cheia: */
-@media (max-width: 900px) {
-	body {
-		grid-template-columns: 1fr; /* Vira uma coluna só */
-		padding: 20px;
-	}
-
-	nav.main-nav {
-		grid-column: 1;
-		grid-row: 1; /* Menu vai para o topo */
-		position: relative;
-		top: 0;
-		margin-bottom: 30px;
-	}
-
-	nav.main-nav ul {
-		flex-direction: row; /* Botões lado a lado no celular */
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-	nav.main-nav a {
-		width: auto; /* Largura automática no celular */
-	}
+	letter-spacing: 1px;
 }

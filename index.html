@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>ELO fazarte - Eloisa Ferreira</title>
 		<link rel="stylesheet" href="css/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		/>
 	</head>
 	<body>
+		<div id="home"></div>
 		<nav class="main-nav">
 			<ul>
 				<li><a href="#home">Pagina Inicial</a></li>
 				<li><a href="#galeria">Galeria</a></li>
-				<li><a href="#contato">Contato</a></li>
+				<li><a href="#" id="btn-contato">Contato</a></li>
 			</ul>
 		</nav>
 
@@ -37,36 +42,38 @@
 			<section class="featured-artwork">
 				<div class="artwork-placeholder">
 					<img
-						src="img/obra_destaque.jpeg"
+						src="img/obra_destaque.png"
 						alt="Obra de Arte em Destaque"
+						width="580"
+						height="690"
 					/>
 				</div>
-			</section>
-
-			<section class="description-text">
-				<article class="content-box">
-					<h2>Sobre minha Arte:</h2>
-					<p>
-						Apos mais de duas decadas mergulhada nos mistérios da psique
-						humana e na quimica cerebral, minha arte surge como a sintese
-						de uma vida dedicada a cura e a compreensao do ser.
-					</p>
-					<p>
-						MInha pintura nao é apenas uma representacao da natureza; é um
-						exercicio de contemplaçao ativa da criacao de Deus. Atraves do
-						abstracionismo biomorfico e organico, investigo a 'Biometra do
-						Sagrado' a identidade unica e divina impressa em cada forma
-						viva.
-					</p>
-					<p>
-						acredito que o verdadeiro florescimento humano reside na nossa
-						capacidade de observar e sentir a presença do criador em suas
-						obras. cada pincelada em acrilica é uma ponte entre o
-						conhecimento cientifico do bem-estar e a transcendencia
-						espiritual, projetada para ser uma janela de pausa, conexao e
-						redescoberta da nossa própria arquitetura interior.
-					</p>
-				</article>
+				<section class="description-text">
+					<article class="content-box">
+						<h2>Sobre minha Arte:</h2>
+						<p>
+							Apos mais de duas decadas mergulhada nos mistérios da
+							psique humana e na quimica cerebral, minha arte surge como
+							a sintese de uma vida dedicada a cura e a compreensao do
+							ser.
+						</p>
+						<p>
+							MInha pintura nao é apenas uma representacao da natureza; é
+							um exercicio de contemplaçao ativa da criacao de Deus.
+							Atraves do abstracionismo biomorfico e organico, investigo
+							a 'Biometra do Sagrado' a identidade unica e divina
+							impressa em cada forma viva.
+						</p>
+						<p>
+							acredito que o verdadeiro florescimento humano reside na
+							nossa capacidade de observar e sentir a presença do criador
+							em suas obras. cada pincelada em acrilica é uma ponte entre
+							o conhecimento cientifico do bem-estar e a transcendencia
+							espiritual, projetada para ser uma janela de pausa, conexao
+							e redescoberta da nossa própria arquitetura interior.
+						</p>
+					</article>
+				</section>
 			</section>
 
 			<section class="gallery-section" id="galeria">
@@ -81,20 +88,42 @@
 					<h3 class="series-name">Série Conexão</h3>
 
 					<div class="artwork-item sold">
-						<div class="image-box"></div>
+						<div class="image-box">
+							<img
+								src="img\serie-conexao\A conexao do ser.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+
 						<p class="artwork-info">
-							conexão do ser - <strong>Vendido</strong>
+							A conexão do ser - <strong>Vendido</strong>
 						</p>
 					</div>
 
 					<div class="artwork-item">
-						<div class="image-box"></div>
-						<p class="artwork-info">Nome da Obra</p>
+						<div class="image-box">
+							<img
+								src="img\serie-conexao\os 5 elementos.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+						<p class="artwork-info">Os 5 Elementos - 1</p>
 					</div>
 
 					<div class="artwork-item">
-						<div class="image-box"></div>
-						<p class="artwork-info">Nome da Obra</p>
+						<div class="image-box">
+							<img
+								src="img\serie-conexao\A Criacao da Flora.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+						<p class="artwork-info">A Criação da Flora</p>
 					</div>
 				</div>
 
@@ -102,20 +131,39 @@
 					<h3 class="series-name">Série Terapeutica</h3>
 
 					<div class="artwork-item sold">
-						<div class="image-box"></div>
-						<p class="artwork-info">
-							conexão do ser - <strong>Vendido</strong>
-						</p>
+						<div class="image-box">
+							<img
+								src="img\serie-terapeutica\descoberta.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+						<p class="artwork-info">Descoberta</p>
 					</div>
 
 					<div class="artwork-item">
-						<div class="image-box"></div>
-						<p class="artwork-info">Nome da Obra</p>
+						<div class="image-box">
+							<img
+								src="img\serie-terapeutica\libertando sentimentos.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+						<p class="artwork-info">Libertando Sentimentos</p>
 					</div>
 
 					<div class="artwork-item">
-						<div class="image-box"></div>
-						<p class="artwork-info">Nome da Obra</p>
+						<div class="image-box">
+							<img
+								src="img\serie-terapeutica\reconhecimento.png"
+								alt="A conexao do ser"
+								width="212"
+								height="62"
+							/>
+						</div>
+						<p class="artwork-info">Reconhecimento</p>
 					</div>
 				</div>
 				<h2 class="Processo Criativo">Processo Criativo</h2>
@@ -126,5 +174,31 @@
 				</div>
 			</section>
 		</main>
+
+		<div id="modal-overlay" class="modal-container">
+			<div class="modal-content">
+				<span class="close-btn">&times;</span>
+				<h2>Entre em Contato</h2>
+				<p class="modal-subtitle">Vamos conversar sobre arte?</p>
+
+				<div class="contact-info">
+					<p>
+						<i class="fa-regular fa-envelope"></i>
+						<strong>Email:</strong> elo@elofazarte.com.br</p>
+					<p>
+						<i class="fa-brands fa-whatsapp"></i
+							<strong>WhatsApp:</strong> (62) 98402-8463</p>
+					<p>
+						<i class="fa-brands fa-instagram"></i
+							><strong>Instagram:</strong> @elofazarte_oficial
+					</p>
+				</div>
+
+				<a href="https://wa.me/5562984028463" target="_blank" class="modal-action-btn">
+    				Enviar Mensagem
+				</a>
+			</div>
+		</div>
+		<script src="/JavaScript/script.js"></script>
 	</body>
 </html>

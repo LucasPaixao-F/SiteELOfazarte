@@ -1,6 +1,6 @@
 /* --- 1. IMPORTAÇÃO DE FONTES --- */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* --- 2. VARIÁVEIS (A Paleta do Artista) --- */
 :root {
 	/* Cores: Tons terrosos suaves e neutros para destacar as obras */
@@ -76,6 +76,7 @@ img {
 	padding: 4rem 1rem;
 	background-color: var(--white);
 	border-radius: 250px;
+	margin-top: 70px;
 }
 
 .brand-title {
@@ -114,6 +115,39 @@ img {
 	letter-spacing: 1px;
 }
 
+.artwork-placeholder {
+	flex: 1; /* Ocupa 50% do espaço */
+	display: flex;
+	justify-content: flex-end; /* Alinha a imagem à direita, encostando no texto */
+}
+
+.artwork-placeholder img {
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	max-width: 100%; /* Garante que a imagem não estoure */
+	height: auto;
+}
+
+.description-text {
+	flex: 1; /* Ocupa os outros 50% do espaço */
+	padding: 2rem;
+	background-color: var(--white);
+	border-radius: 8px;
+	text-align: left; /* Alinhamento à esquerda fica melhor para leitura em colunas */
+	margin: 0; /* Removemos a margem automática que centralizava antes */
+}
+
+.description-text h2 {
+	text-align: left; /* Título alinhado com o texto */
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
+}
+
+.description-text p {
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	color: #555;
+}
+
 /* --- LAYOUT GERAL --- */
 .container {
 	max-width: 1200px;
@@ -123,13 +157,16 @@ img {
 
 /* --- OBRA DESTAQUE --- */
 .featured-artwork {
-	margin: 3rem 0;
-	text-align: center;
+	margin: 7.5rem 0;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	gap: 40px;
 }
 
 .featured-artwork img {
 	margin: 0 auto;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* --- TEXTO SOBRE --- */
@@ -159,13 +196,18 @@ img {
 	padding-bottom: 4rem;
 }
 
-.gallery-title,
+.gallery-title {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 45px;
+}
 .series-name,
 h2[class~="Processo"] {
 	/* Seleciona o h2 que tem a classe Processo */
 	text-align: center;
 	margin: 3rem 0 1.5rem 0;
 	position: relative;
+	font-size: 1.5rem;
 }
 
 /* Filtros (Botões simulados) */
@@ -214,10 +256,18 @@ h2[class~="Processo"] {
 
 .image-box {
 	width: 100%;
-	height: 250px; /* Altura fixa para manter o padrão */
-	background-color: #eee; /* Cor de fundo enquanto a imagem não carrega */
+	height: 350px; /* Mantém a altura fixa */
+	background-color: #eee;
 	margin-bottom: 10px;
-	object-fit: cover; /* Se tiver imagem real dentro, use isso no img */
+	overflow: hidden; /* Garante que nada saia para fora das bordas arredondadas se houver */
+}
+
+/* Adicione esta NOVA regra logo abaixo */
+.image-box img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* O SEGREDO: corta a imagem para preencher sem esticar/deformar */
+	display: block;
 }
 
 .artwork-info {
@@ -232,4 +282,106 @@ h2[class~="Processo"] {
 	font-size: 0.8rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+
+/* --- MODAL DE CONTATO (POP-UP) --- */
+
+/* O fundo escuro que cobre a tela inteira */
+.modal-container {
+	display: none; /* Começa escondido */
+	position: fixed;
+	z-index: 2000; /* Fica na frente de tudo, até do menu */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6); /* Fundo preto transparente */
+	justify-content: center; /* Centraliza na tela */
+	align-items: center;
+	backdrop-filter: blur(5px); /* Efeito de desfoque chique no fundo */
+}
+
+/* A caixinha branca com as informações */
+.modal-content {
+	background-color: var(--white);
+	padding: 3rem;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 500px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+	animation: fadeIn 0.4s; /* Efeito suave ao abrir */
+}
+
+/* Título do Modal */
+.modal-content h2 {
+	font-family: "Playfair Display", serif;
+	color: var(--brand-color);
+	font-size: 2.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+	color: var(--accent-color);
+	font-style: italic;
+	margin-bottom: 2rem;
+}
+
+/* Informações de contato */
+.contact-info p {
+	font-size: 1.1rem;
+	margin: 10px 0;
+	color: var(--text-color);
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+/* Botão de Fechar (X) */
+.close-btn {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	top: 15px;
+	right: 25px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.close-btn:hover {
+	color: var(--brand-color);
+}
+
+/* Botão de ação (opcional) */
+.modal-action-btn {
+	background-color: var(--brand-color);
+	color: var(--white);
+	border: none;
+	padding: 12px 30px;
+	border-radius: 25px;
+	font-size: 1rem;
+	margin-top: 1.5rem;
+	cursor: pointer;
+	transition: background 0.3s;
+	font-family: "Lato", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.modal-action-btn:hover {
+	background-color: var(--accent-color);
+}
+
+/* Animaçãozinha de entrada */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

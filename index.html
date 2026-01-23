@@ -80,8 +80,8 @@
 				<h2 class="gallery-title">Minhas obras</h2>
 
 				<div class="gallery-filters">
-					<span class="filter-item"><b>Série Conexão</b></span>
-					<span class="filter-item"><b>Série Terapêutica</b></span>
+					<span class="filter-item" id="btn-conexao"><b>Série Conexão</b></span>
+					<span class="filter-item" id="btn-terapeutica"><b>Série Terapêutica</b></span>
 				</div>
 
 				<div class="series-conexao-container">
@@ -175,6 +175,8 @@
 			</section>
 		</main>
 
+<!--------------------------pop-up contato---------------------------->
+
 		<div id="modal-overlay" class="modal-container">
 			<div class="modal-content">
 				<span class="close-btn">&times;</span>
@@ -184,7 +186,7 @@
 				<div class="contact-info">
 					<p>
 						<i class="fa-regular fa-envelope"></i>
-						<strong>Email:</strong> elo@elofazarte.com.br</p>
+							<strong>Email:</strong> elo@elofazarte.com.br</p>
 					<p>
 						<i class="fa-brands fa-whatsapp"></i
 							<strong>WhatsApp:</strong> (62) 98402-8463</p>
@@ -198,6 +200,16 @@
     				Enviar Mensagem
 				</a>
 			</div>
+		</div>
+		<!--------------------------pop-up galerias ---------------------------->
+		
+		<div id="modal-galeria" class="modal-container">
+			 <div class="modal-content modal-large">
+				  <span class="close-btn-galeria">&times;</span>
+				  <h2 id="titulo-galeria">Título da Série</h2>
+				  
+				  <div id="grid-fotos-extra" class="galeria-popup-grid"></div>
+			 </div>
 		</div>
 		<script src="/JavaScript/script.js"></script>
 	</body>

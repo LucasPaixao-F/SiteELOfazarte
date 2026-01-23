@@ -19,15 +19,15 @@ if (closeBtnContato) {
 
 // --- NOVO CÓDIGO: MODAL DE GALERIA ---
 const imagensConexao = [
-	"img/serie-conexao/extra1.jpg",
-	"img/serie-conexao/extra2.jpg",
-	"img/serie-conexao/extra3.jpg",
+	"img/serie-conexao/jardim da alma.png",
+	"img/serie-conexao/agenere.png",
+	"img/serie-conexao/os 5 elementos 2.png",
 	"img/serie-conexao/A conexao do ser.png",
 ];
 
 const imagensTerapeutica = [
-	"img/serie-terapeutica/extra1.jpg",
-	"img/serie-terapeutica/extra2.jpg",
+	"img/serie-terapeutica/transformacao.png",
+	"img/serie-terapeutica/consciencia.png",
 	"img/serie-terapeutica/descoberta.png",
 ];
 
@@ -39,13 +39,10 @@ const closeBtnGaleria = document.querySelector(".close-btn-galeria");
 const gridFotos = document.getElementById("grid-fotos-extra");
 const tituloGaleria = document.getElementById("titulo-galeria");
 
-// 3. Função para abrir a galeria com as fotos certas
 function abrirGaleria(titulo, listaImagens) {
-	// Limpa fotos anteriores
 	gridFotos.innerHTML = "";
 	tituloGaleria.innerText = titulo;
 
-	// Cria as tags <img> para cada item da lista
 	listaImagens.forEach((caminhoImagem) => {
 		const img = document.createElement("img");
 		img.src = caminhoImagem;

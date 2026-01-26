@@ -536,3 +536,119 @@ h2[class~="Processo"] {
 		right: -10px;
 	}
 }
+
+/* =========================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+   ========================================= */
+
+@media (max-width: 768px) {
+	/* --- 1. AJUSTES GERAIS --- */
+	body {
+		font-size: 16px; /* Garante tamanho legível de texto */
+	}
+
+	.container {
+		padding: 0 15px; /* Menos borda lateral para ganhar espaço */
+	}
+
+	/* --- 2. CABEÇALHO (HEADER) --- */
+	.header-section {
+		padding: 2rem 1rem;
+		margin-top: 0; /* Remove espaço extra no topo */
+		border-radius: 0 0 50px 50px; /* Arredondado menos exagerado */
+	}
+
+	.brand-title {
+		font-size: 2.5rem; /* Diminui o título gigante */
+		margin-bottom: 2rem;
+	}
+
+	.logo-image {
+		width: 200px; /* Logo menor */
+		height: 200px;
+		max-width: 80%; /* Garante que nunca vaze a tela */
+	}
+
+	.artist-name {
+		font-size: 2rem;
+	}
+
+	.artist-titles,
+	.main-titles h3 {
+		font-size: 1.2rem;
+	}
+
+	/* --- 3. NAVEGAÇÃO (MENU) --- */
+	.main-nav ul {
+		flex-direction: column; /* Empilha os links */
+		gap: 15px;
+		padding: 10px 0;
+	}
+
+	.main-nav {
+		position: relative; /* No mobile, fixo às vezes atrapalha, mas se preferir fixo, mantenha sticky */
+	}
+
+	/* --- 4. OBRA DESTAQUE (IMPORTANTE) --- */
+	.featured-artwork {
+		flex-direction: column; /* Coloca a foto em cima e texto embaixo */
+		gap: 20px;
+		margin: 4rem 0;
+		text-align: center; /* Centraliza tudo */
+	}
+
+	.artwork-placeholder {
+		justify-content: center; /* Centraliza a imagem */
+	}
+
+	.description-text {
+		text-align: left; /* Mantém o texto alinhado à esquerda para leitura */
+		padding: 1rem;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.description-text h2 {
+		text-align: center; /* Título centralizado */
+	}
+
+	/* --- 5. GRID DA GALERIA --- */
+	.galeria-grid,
+	.series-conexao-container,
+	.series-terapeutica-container {
+		/* Garante que as colunas se ajustem */
+		grid-template-columns: 1fr; /* 1 coluna por vez em telas muito pequenas */
+	}
+
+	/* Centraliza as imagens dentro dos cards no mobile */
+	.artwork-item {
+		max-width: 350px; /* Limita largura para não ficar gigante */
+		margin: 0 auto; /* Centraliza o card */
+	}
+
+	/* --- 6. MODAIS (POP-UPS) --- */
+	.modal-content {
+		width: 95%; /* Ocupa quase toda a largura */
+		padding: 1.5rem; /* Menos enchimento interno */
+		margin: 10% auto; /* Margem segura */
+	}
+
+	.brand-title {
+		font-size: 2rem;
+	}
+
+	.galeria-popup-grid img {
+		height: auto; /* Altura automática para não esticar */
+		max-height: 300px;
+	}
+
+	/* Ajuste para o carrossel que criamos antes */
+	.carousel-btn {
+		padding: 0 5px; /* Botões menores */
+		font-size: 1.5rem;
+	}
+
+	.carousel-card img {
+		height: 250px; /* Imagem menor no carrossel mobile */
+	}
+}

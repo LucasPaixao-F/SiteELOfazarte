@@ -204,13 +204,22 @@
 		<!--------------------------pop-up galerias ---------------------------->
 		
 		<div id="modal-galeria" class="modal-container">
-			 <div class="modal-content modal-large">
-				  <span class="close-btn-galeria">&times;</span>
-				  <h2 id="titulo-galeria">Título da Série</h2>
-				  
-				  <div id="grid-fotos-extra" class="galeria-popup-grid"></div>
-			 </div>
-		</div>
+    <div class="modal-content modal-large">
+        <span class="close-btn-galeria">&times;</span>
+        <h2 id="titulo-galeria">Título da Série</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" id="btn-voltar">&#10094;</button>
+            
+            <div class="carousel-view">
+                <div id="carousel-track" class="carousel-track">
+                    </div>
+            </div>
+
+            <button class="carousel-btn next-btn" id="btn-avancar">&#10095;</button>
+        </div>
+    </div>
+</div>
 		<script src="/JavaScript/script.js"></script>
 	</body>
 </html>

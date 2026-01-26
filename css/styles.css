@@ -430,3 +430,109 @@ h2[class~="Processo"] {
 .close-btn-galeria:hover {
 	color: var(--brand-color);
 }
+
+/* styles.css - Adicione ao final do arquivo */
+
+/* Removemos o grid antigo e preparamos o container do carrossel */
+.carousel-wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+
+/* Janela de visualização (o que o usuário vê) */
+.carousel-view {
+	overflow: hidden; /* Esconde o que está fora da tela */
+	width: 100%;
+	margin: 0 15px; /* Espaço para as setas não ficarem coladas */
+}
+
+/* O trilho que se move */
+.carousel-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out; /* Animação suave */
+	width: 100%;
+}
+
+/* Cada cartão individual (contém foto + texto) */
+.carousel-card {
+	min-width: 50%; /* Ocupa exatamente metade da largura (2 por vez) */
+	box-sizing: border-box;
+	padding: 0 10px; /* Espaço entre as duas fotos */
+	text-align: center;
+}
+
+.carousel-card img {
+	width: 100%;
+	height: 350px; /* Mantém altura fixa */
+	object-fit: cover;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto abaixo da imagem */
+.carousel-info {
+	margin-top: 15px;
+	padding: 10px;
+	background: #f9f9f9;
+	border-radius: 5px;
+}
+
+.carousel-info h3 {
+	font-family: "Playfair Display", serif;
+	font-size: 1.2rem;
+	color: var(--brand-color);
+	margin-bottom: 5px;
+}
+
+.carousel-info p {
+	font-size: 0.9rem;
+	color: #666;
+	line-height: 1.4;
+	text-align: left;
+}
+
+/* Botões de Navegação (Setas) */
+.carousel-btn {
+	background-color: transparent;
+	border: none;
+	color: var(--accent-color);
+	font-size: 2rem;
+	cursor: pointer;
+	transition: 0.3s;
+	padding: 0 10px;
+}
+
+.carousel-btn:hover {
+	color: var(--brand-color);
+	transform: scale(1.2);
+}
+
+/* Responsividade: Em celulares, mostra 1 por vez */
+@media (max-width: 768px) {
+	.carousel-card {
+		min-width: 100%; /* 1 foto por vez no mobile */
+	}
+
+	.carousel-wrapper {
+		flex-direction: column; /* Setas ficam embaixo ou em cima se preferir, ou mantem row */
+		position: relative;
+	}
+
+	.carousel-btn {
+		position: absolute;
+		top: 40%;
+		z-index: 10;
+		background: rgba(255, 255, 255, 0.7);
+		border-radius: 50%;
+	}
+
+	.prev-btn {
+		left: -10px;
+	}
+	.next-btn {
+		right: -10px;
+	}
+}

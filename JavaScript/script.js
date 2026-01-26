@@ -1,81 +1,158 @@
-// --- CÓDIGO DO MODAL DE CONTATO EXISTENTE (MANTENHA) ---
-const modalContato = document.getElementById("modal-overlay");
-const btnContato = document.getElementById("btn-contato");
-const closeBtnContato = document.querySelector(".close-btn");
-const btnEnviar = document.querySelector(".modal-action-btn"); // Corrigi o seletor aqui baseada no seu HTML
+// script.js
 
-if (btnContato) {
-	btnContato.onclick = function (event) {
-		event.preventDefault();
-		modalContato.style.display = "flex";
-	};
-}
-
-if (closeBtnContato) {
-	closeBtnContato.onclick = function () {
-		modalContato.style.display = "none";
-	};
-}
-
-// --- NOVO CÓDIGO: MODAL DE GALERIA ---
-const imagensConexao = [
-	"img/serie-conexao/jardim da alma.png",
-	"img/serie-conexao/agenere.png",
-	"img/serie-conexao/os 5 elementos 2.png",
-	"img/serie-conexao/A conexao do ser.png",
+// --- DADOS DAS OBRAS (Agora com Título e Descrição) ---
+const obrasConexao = [
+	{
+		src: "img/serie-conexao/jardim da alma.png",
+		titulo: "Jardim da Alma",
+		tamanho: "70x90cm",
+		desc: "Uma obra delicada que combina formas circulares, miniaturas de flores e folhas com palavras escritas em pequena escala. O título sugere que esses elementos representam a complexidade e a beleza do mundo interior, convidando à contemplação atenta dos detalhes sutis da alma.",
+		tecnica: "Acrílico sobre tela",
+	},
+	{
+		src: "img/serie-conexao/agenere.png",
+		titulo: "Agênere",
+		tamanho: "50x60cm",
+		desc: "Agênere é uma pintura intuitiva sem esboço prévio, onde o pincel foi guiado pela inspiração e intuição. Agênere faz referência ao momento em que Cristo se tornou tangível aos olhos humanos sobre doação ectoplasmática de Maria de Nazará.",
+		tecnica: "Acrílico sobre tela",
+	},
+	{
+		src: "img/serie-conexao/os 5 elementos 2.png",
+		titulo: "Os 5 Elementos II",
+		desc: "Equilíbrio entre terra, água, fogo, ar e éter.",
+	},
+	{
+		src: "img/serie-conexao/A conexao do ser.png",
+		titulo: "A Conexão do Ser",
+		desc: "O momento exato onde a matéria encontra o divino.",
+	},
 ];
 
-const imagensTerapeutica = [
-	"img/serie-terapeutica/transformacao.png",
-	"img/serie-terapeutica/consciencia.png",
-	"img/serie-terapeutica/descoberta.png",
+const obrasTerapeutica = [
+	{
+		src: "img/serie-terapeutica/transformacao.png",
+		titulo: "Transformação",
+		desc: "O processo doloroso e belo da mudança.",
+	},
+	{
+		src: "img/serie-terapeutica/consciencia.png",
+		titulo: "Consciência",
+		desc: "O despertar para novas realidades interiores.",
+	},
+	{
+		src: "img/serie-terapeutica/descoberta.png",
+		titulo: "Descoberta",
+		desc: "Encontrando caminhos onde antes havia muros.",
+	},
 ];
 
-// 2. Selecionar elementos do DOM
+// --- SELEÇÃO DE ELEMENTOS ---
 const modalGaleria = document.getElementById("modal-galeria");
-const btnConexao = document.getElementById("btn-conexao");
-const btnTerapeutica = document.getElementById("btn-terapeutica");
-const closeBtnGaleria = document.querySelector(".close-btn-galeria");
-const gridFotos = document.getElementById("grid-fotos-extra");
 const tituloGaleria = document.getElementById("titulo-galeria");
+const track = document.getElementById("carousel-track");
+const btnVoltar = document.getElementById("btn-voltar");
+const btnAvancar = document.getElementById("btn-avancar");
+const closeBtnGaleria = document.querySelector(".close-btn-galeria");
 
-function abrirGaleria(titulo, listaImagens) {
-	gridFotos.innerHTML = "";
+// Variáveis de controle do carrossel
+let currentSlideIndex = 0;
+let totalSlides = 0;
+const cardsToShow = 2; // Quantos cards mostramos por vez (pc)
+
+function abrirGaleria(titulo, listaObras) {
+	// 1. Limpa o carrossel anterior
+	track.innerHTML = "";
 	tituloGaleria.innerText = titulo;
+	currentSlideIndex = 0; // Reseta para o começo
+	totalSlides = listaObras.length;
 
-	listaImagens.forEach((caminhoImagem) => {
-		const img = document.createElement("img");
-		img.src = caminhoImagem;
-		img.alt = "Obra da " + titulo;
-		gridFotos.appendChild(img);
+	// 2. Cria os cards (Imagem + Texto)
+	listaObras.forEach((obra) => {
+		// Cria o elemento do card
+		const card = document.createElement("div");
+		card.className = "carousel-card";
+
+		card.innerHTML = `
+            <img src="${obra.src}" alt="${obra.titulo}">
+            <div class="carousel-info">
+                <h3>${obra.titulo}</h3>
+					 <p><strong>Tamanho: </strong>${obra.tamanho ? obra.tamanho : ""}</p>
+					 <p><strong>Técnica: </strong>${obra.tecnica ? obra.tecnica : ""}</p>
+                <p><strong>Sobre: </strong>${obra.desc}</p>
+            </div>
+        `;
+
+		track.appendChild(card);
 	});
 
-	// Mostra o modal
+	// 3. Mostra o modal e atualiza a posição inicial
 	modalGaleria.style.display = "flex";
+	atualizarCarrossel();
 }
 
-// 4. Eventos de clique nos botões
+function atualizarCarrossel() {
+	const isMobile = window.innerWidth <= 768;
+	const itemsPerView = isMobile ? 1 : cardsToShow;
+	const percentage = -(currentSlideIndex * (100 / itemsPerView));
+	track.style.transform = `translateX(${percentage}%)`;
+
+	btnVoltar.style.opacity = currentSlideIndex === 0 ? "0.3" : "1";
+	btnVoltar.style.cursor = currentSlideIndex === 0 ? "default" : "pointer";
+
+	// Verifica se chegou no fim
+	const maxIndex = totalSlides - itemsPerView;
+	btnAvancar.style.opacity = currentSlideIndex >= maxIndex ? "0.3" : "1";
+	btnAvancar.style.cursor =
+		currentSlideIndex >= maxIndex ? "default" : "pointer";
+}
+
+// --- EVENTOS DE CLIQUE ---
+
+// Botão Série Conexão
+const btnConexao = document.getElementById("btn-conexao");
 if (btnConexao) {
 	btnConexao.onclick = function () {
-		abrirGaleria("Série Conexão - Obras Extras", imagensConexao);
+		abrirGaleria("Série Conexão - Obras Extras", obrasConexao);
 	};
 }
 
+// Botão Série Terapêutica
+const btnTerapeutica = document.getElementById("btn-terapeutica");
 if (btnTerapeutica) {
 	btnTerapeutica.onclick = function () {
-		abrirGaleria("Série Terapêutica - Obras Extras", imagensTerapeutica);
+		abrirGaleria("Série Terapêutica - Obras Extras", obrasTerapeutica);
 	};
 }
 
-// 5. Fechar Galeria no X
+// Botões de Navegação (Next/Prev)
+btnAvancar.onclick = function () {
+	const isMobile = window.innerWidth <= 768;
+	const itemsPerView = isMobile ? 1 : cardsToShow;
+	const maxIndex = totalSlides - itemsPerView;
+
+	if (currentSlideIndex < maxIndex) {
+		currentSlideIndex++;
+		atualizarCarrossel();
+	}
+};
+
+btnVoltar.onclick = function () {
+	if (currentSlideIndex > 0) {
+		currentSlideIndex--;
+		atualizarCarrossel();
+	}
+};
+
+// Fechar Galeria no X
 if (closeBtnGaleria) {
 	closeBtnGaleria.onclick = function () {
 		modalGaleria.style.display = "none";
 	};
 }
 
-// 6. Fechar clicando fora (Serve para os dois modais)
+// Fechar clicando fora
 window.onclick = function (event) {
+	const modalContato = document.getElementById("modal-overlay");
 	if (event.target == modalContato) {
 		modalContato.style.display = "none";
 	}
@@ -83,13 +160,3 @@ window.onclick = function (event) {
 		modalGaleria.style.display = "none";
 	}
 };
-
-// Lógica do WhatsApp (Mantenha)
-if (btnEnviar) {
-	btnEnviar.onclick = function () {
-		let telefone = "5562984028463";
-		let mensagem = "Olá! Gostaria de saber mais sobre as obras.";
-		let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-		window.open(url, "_blank");
-	};
-}

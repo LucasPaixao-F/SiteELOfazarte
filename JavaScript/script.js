@@ -1,5 +1,3 @@
-// script.js
-
 // --- DADOS DAS OBRAS (Agora com Título e Descrição) ---
 const obrasConexao = [
 	{
@@ -19,12 +17,12 @@ const obrasConexao = [
 	{
 		src: "img/serie-conexao/os 5 elementos 2.png",
 		titulo: "Os 5 Elementos II",
-		desc: "Equilíbrio entre terra, água, fogo, ar e éter.",
+		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza..",
 	},
 	{
 		src: "img/serie-conexao/A conexao do ser.png",
 		titulo: "A Conexão do Ser",
-		desc: "O momento exato onde a matéria encontra o divino.",
+		desc: "A obra de arte representa o momento em que o ser humano consegue, através da meditação, oração e contemplação, uma conexão com o ser superior..",
 	},
 ];
 
@@ -32,17 +30,23 @@ const obrasTerapeutica = [
 	{
 		src: "img/serie-terapeutica/transformacao.png",
 		titulo: "Transformação",
-		desc: "O processo doloroso e belo da mudança.",
+		tamanho: "60x90cm",
+		tecnica: "Mista",
+		desc: "Após a Descoberta é possível promover a Transformação tão necessária a um estado de plenitude e paz interior.",
 	},
 	{
 		src: "img/serie-terapeutica/consciencia.png",
 		titulo: "Consciência",
-		desc: "O despertar para novas realidades interiores.",
+		tamanho: "70 x 70cm",
+		tecnica: "Acrílico sobre tela",
+		desc: "A obra vem representar o momento de conscientização necessário para a ressignificação do sofrimento em busca do caminho para a cura.",
 	},
 	{
 		src: "img/serie-terapeutica/descoberta.png",
 		titulo: "Descoberta",
-		desc: "Encontrando caminhos onde antes havia muros.",
+		tamanho: "60x90cm",
+		tecnica: "Mista",
+		desc: " A obra reproduz o movimento necessário para a descoberta de um novo estado de ser, mais livre e conectado com o eu interior.",
 	},
 ];
 
@@ -152,11 +156,31 @@ if (closeBtnGaleria) {
 
 // Fechar clicando fora
 window.onclick = function (event) {
+	// --- MODAL DE CONTATO ---
+	const btnContato = document.getElementById("btn-contato");
 	const modalContato = document.getElementById("modal-overlay");
-	if (event.target == modalContato) {
-		modalContato.style.display = "none";
+	const closeBtnContato = document.querySelector(".close-btn");
+
+	if (btnContato) {
+		btnContato.onclick = function (e) {
+			e.preventDefault(); // Impede o link de recarregar a página
+			modalContato.style.display = "flex";
+		};
 	}
-	if (event.target == modalGaleria) {
-		modalGaleria.style.display = "none";
+
+	if (closeBtnContato) {
+		closeBtnContato.onclick = function () {
+			modalContato.style.display = "none";
+		};
 	}
+
+	// Fechar clicando fora (Versão atualizada para ambos os modais)
+	window.onclick = function (event) {
+		if (event.target == modalContato) {
+			modalContato.style.display = "none";
+		}
+		if (event.target == modalGaleria) {
+			modalGaleria.style.display = "none";
+		}
+	};
 };

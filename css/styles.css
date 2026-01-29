@@ -3,6 +3,10 @@
 
 /* aguardando fotos */
 
+html {
+	scroll-behavior: smooth;
+}
+
 :root {
 	--bg-color: #f7f7f3;
 	--text-color: #333333;
@@ -266,7 +270,8 @@ h2[class~="Processo"] {
 .image-box img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* O SEGREDO: corta a imagem para preencher sem esticar/deformar */
+	object-fit: contain; /* ALTERADO: evita o corte nas obras da página principal */
+	background-color: #f4f4f4;
 	display: block;
 }
 
@@ -466,8 +471,9 @@ h2[class~="Processo"] {
 
 .carousel-card img {
 	width: 100%;
-	height: 350px; /* Mantém altura fixa */
-	object-fit: cover;
+	height: 350px;
+	object-fit: contain; /* ALTERADO: agora mostra a imagem inteira */
+	background-color: #f0f0f0; /* ADICIONADO: fundo cinza claro para os espaços vazios */
 	border-radius: 8px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -512,8 +518,9 @@ h2[class~="Processo"] {
 
 /* Responsividade: Em celulares, mostra 1 por vez */
 @media (max-width: 768px) {
-	.carousel-card {
-		min-width: 100%; /* 1 foto por vez no mobile */
+	.carousel-card img {
+		height: 300px; /* Aumentei um pouco para visualização melhor no celular */
+		object-fit: contain;
 	}
 
 	.carousel-wrapper {

@@ -16,13 +16,10 @@ const obrasConexao = [
 	},
 	{
 		src: "img/serie-conexao/os 5 elementos 2.png",
-		titulo: "Os 5 Elementos II",
+		titulo: "Os Cinco Elementos II - VENDIDO",
+		tamanho: "60x100cm",
+		tecnica: "Mista",
 		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza..",
-	},
-	{
-		src: "img/serie-conexao/A conexao do ser.png",
-		titulo: "A Conexão do Ser",
-		desc: "A obra de arte representa o momento em que o ser humano consegue, através da meditação, oração e contemplação, uma conexão com o ser superior..",
 	},
 ];
 

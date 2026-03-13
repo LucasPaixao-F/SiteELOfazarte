@@ -659,3 +659,20 @@ h2[class~="Processo"] {
 		height: 250px; /* Imagem menor no carrossel mobile */
 	}
 }
+
+.biografia-class {
+	font-family: "Playfair Display", serif;
+	color: var(--brand-color);
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+.biography-text {
+	font-size: 1.1rem;
+	color: #555;
+	line-height: 1.6;
+	text-align: justify;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 20px;
+}

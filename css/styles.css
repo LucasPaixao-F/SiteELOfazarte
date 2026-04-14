@@ -5,13 +5,13 @@
 
 @font-face {
 	font-family: "Mistral";
-	src: url("fonts/MISTRAL.woff") format("woff");
+	src: url("../fonts/MISTRAL.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Manthoels";
-	src: url("fonts/Manthoels.otf") format("opentype");
+	src: url("../fonts/Manthoels.otf") format("opentype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -225,6 +225,19 @@ img {
 	text-align: center;
 	margin-bottom: 45px;
 }
+
+/* --- CABEÇALHOS DAS SÉRIES DA GALERIA --- */
+.series-header {
+	text-align: center;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+}
+
+.series-header .series-name {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
 .series-name,
 h2[class~="Processo"],
 h2[class~="Ambientes"] {
@@ -258,8 +271,7 @@ h2[class~="Ambientes"] {
 
 /* --- GRID DAS OBRAS --- */
 .series-conexao-container,
-.series-terapeutica-container,
-.fotos-galeria {
+.series-terapeutica-container {
 	display: grid;
 	/* Cria colunas automáticas com largura mínima de 280px */
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -286,11 +298,10 @@ h2[class~="Ambientes"] {
 	overflow: hidden; /* Garante que nada saia para fora das bordas arredondadas se houver */
 }
 
-/* Adicione esta NOVA regra logo abaixo */
 .image-box img {
 	width: 100%;
 	height: 100%;
-	object-fit: contain; /* ALTERADO: evita o corte nas obras da página principal */
+	object-fit: contain;
 	background-color: #f4f4f4;
 	display: block;
 }
@@ -309,395 +320,26 @@ h2[class~="Ambientes"] {
 	letter-spacing: 1px;
 }
 
-/* --- MODAL DE CONTATO (POP-UP) --- */
-
-/* O fundo escuro que cobre a tela inteira */
-.modal-container {
-	display: none; /* Começa escondido */
-	position: fixed;
-	z-index: 2000; /* Fica na frente de tudo, até do menu */
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.6); /* Fundo preto transparente */
-	justify-content: center; /* Centraliza na tela */
-	align-items: center;
-	backdrop-filter: blur(5px); /* Efeito de desfoque chique no fundo */
-}
-
-/* A caixinha branca com as informações */
-.modal-content {
-	background-color: var(--white);
-	padding: 3rem;
-	border-radius: 15px;
-	width: 90%;
-	max-width: 500px;
-	text-align: center;
-	position: relative;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-	animation: fadeIn 0.4s; /* Efeito suave ao abrir */
-}
-
-/* Título do Modal */
-.modal-content h2 {
-	font-family: "Playfair Display", serif;
-	color: var(--brand-color);
-	font-size: 2.2rem;
-	margin-bottom: 0.5rem;
-}
-
-.modal-subtitle {
-	color: var(--accent-color);
-	font-style: italic;
-	margin-bottom: 2rem;
-}
-
-/* Informações de contato */
-.contact-info p {
-	font-size: 1.1rem;
-	margin: 10px 0;
-	color: var(--text-color);
-	border-bottom: 1px solid #eee;
-	padding-bottom: 10px;
-}
-
-/* Botão de Fechar (X) */
-.close-btn {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	position: absolute;
-	top: 15px;
-	right: 25px;
-	cursor: pointer;
-	transition: 0.3s;
-}
-
-.close-btn:hover {
-	color: var(--brand-color);
-}
-
-/* Botão de ação (opcional) */
-.modal-action-btn {
-	background-color: var(--brand-color);
-	color: var(--white);
-	border: none;
-	padding: 12px 30px;
-	border-radius: 25px;
-	font-size: 1rem;
-	margin-top: 1.5rem;
-	cursor: pointer;
-	transition: background 0.3s;
-	font-family: "Lato", sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-.modal-action-btn:hover {
-	background-color: var(--accent-color);
-}
-
-/* Animaçãozinha de entrada */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-/* --- ESTILOS DO MODAL DE GALERIA --- */
-
-/* Classe para deixar o modal de fotos mais largo que o de contato */
-.modal-content.modal-large {
-	max-width: 900px;
-	width: 100%;
-	max-height: 100vh; /* Altura máxima de 90% da tela */
-	overflow-y: auto; /* Permite rolar se tiver muitas fotos */
-}
-
-/* A grade onde as fotos vão ficar */
-.galeria-popup-grid {
+/* --- AMBIENTES DECORADOS --- */
+.fotos-galeria {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 15px;
-	margin-top: 20px;
-	margin-right: 20px;
+	grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+	gap: 1.5rem;
+	margin-bottom: 3rem;
 }
 
-/* Estilo das imagens dentro do pop-up */
-.galeria-popup-grid img {
+.fotos-galeria img {
 	width: 100%;
-	height: 400px; /* Altura fixa para ficarem alinhadas */
+	height: 300px;
 	object-fit: cover;
-	border-radius: 5px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s;
-}
-
-.galeria-popup-grid img:hover {
-	transform: scale(1.05);
-}
-
-/* Botão de fechar específico da galeria (reutilizando estilo base) */
-.close-btn-galeria {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.close-btn-galeria:hover {
-	color: var(--brand-color);
-}
-
-/* styles.css - Adicione ao final do arquivo */
-
-/* Removemos o grid antigo e preparamos o container do carrossel */
-.carousel-wrapper {
-	display: flex;
-	align-items: center;
-	position: relative;
-	width: 100%;
-	margin-top: 20px;
-}
-
-/* Janela de visualização (o que o usuário vê) */
-.carousel-view {
-	overflow: hidden; /* Esconde o que está fora da tela */
-	width: 100%;
-	margin: 0 15px; /* Espaço para as setas não ficarem coladas */
-}
-
-/* O trilho que se move */
-.carousel-track {
-	display: flex;
-	transition: transform 0.5s ease-in-out; /* Animação suave */
-	width: 100%;
-}
-
-/* Cada cartão individual (contém foto + texto) */
-.carousel-card {
-	min-width: 50%; /* Ocupa exatamente metade da largura (2 por vez) */
-	box-sizing: border-box;
-	padding: 0 10px; /* Espaço entre as duas fotos */
-	text-align: center;
-}
-
-.carousel-card img {
-	width: 100%;
-	height: 350px;
-	object-fit: contain; /* ALTERADO: agora mostra a imagem inteira */
-	background-color: #f0f0f0; /* ADICIONADO: fundo cinza claro para os espaços vazios */
 	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e0e0e0; /* borda sutil cinza claro */
+	padding: 8px; /* espaço interno entre a foto e a borda */
+	background-color: var(--white); /* fundo branco no padding */
 }
 
-/* Texto abaixo da imagem */
-.carousel-info {
-	margin-top: 15px;
-	padding: 10px;
-	background: #f9f9f9;
-	border-radius: 5px;
-}
-
-.carousel-info h3 {
-	font-family: "Playfair Display", serif;
-	font-size: 1.2rem;
-	color: var(--brand-color);
-	margin-bottom: 5px;
-}
-
-.carousel-info p {
-	font-size: 0.9rem;
-	color: #666;
-	line-height: 1.4;
-	text-align: left;
-}
-
-/* Botões de Navegação (Setas) */
-.carousel-btn {
-	background-color: transparent;
-	border: none;
-	color: var(--accent-color);
-	font-size: 2rem;
-	cursor: pointer;
-	transition: 0.3s;
-	padding: 0 10px;
-}
-
-.carousel-btn:hover {
-	color: var(--brand-color);
-	transform: scale(1.2);
-}
-
-/* Responsividade: Em celulares, mostra 1 por vez */
-@media (max-width: 768px) {
-	.carousel-card img {
-		height: 300px; /* Aumentei um pouco para visualização melhor no celular */
-		object-fit: contain;
-	}
-
-	.carousel-wrapper {
-		flex-direction: column; /* Setas ficam embaixo ou em cima se preferir, ou mantem row */
-		position: relative;
-	}
-
-	.carousel-btn {
-		position: absolute;
-		top: 40%;
-		z-index: 10;
-		background: rgba(255, 255, 255, 0.7);
-		border-radius: 50%;
-	}
-
-	.prev-btn {
-		left: -10px;
-	}
-	.next-btn {
-		right: -10px;
-	}
-}
-
-/* =========================================
-   RESPONSIVIDADE (CELULARES E TABLETS)
-   ========================================= */
-
-@media (max-width: 768px) {
-	/* --- 1. AJUSTES GERAIS --- */
-	body {
-		font-size: 16px; /* Garante tamanho legível de texto */
-	}
-
-	.container {
-		padding: 0 15px; /* Menos borda lateral para ganhar espaço */
-	}
-
-	/* --- 2. CABEÇALHO (HEADER) --- */
-	.header-section {
-		padding: 2rem 1rem;
-		margin-top: 0; /* Remove espaço extra no topo */
-		border-radius: 0 0 50px 50px; /* Arredondado menos exagerado */
-	}
-
-	.brand-title {
-		font-size: 2.5rem; /* Diminui o título gigante */
-		margin-bottom: 2rem;
-	}
-
-	.logo-image {
-		width: 200px; /* Logo menor */
-		height: 200px;
-		max-width: 80%; /* Garante que nunca vaze a tela */
-	}
-
-	.artist-name {
-		font-size: 2rem;
-	}
-
-	.artist-titles,
-	.main-titles h3 {
-		font-size: 1.2rem;
-	}
-
-	/* --- 3. NAVEGAÇÃO (MENU) --- */
-	.main-nav ul {
-		flex-direction: column; /* Empilha os links */
-		gap: 15px;
-		padding: 10px 0;
-	}
-
-	.main-nav {
-		position: relative; /* No mobile, fixo às vezes atrapalha, mas se preferir fixo, mantenha sticky */
-	}
-
-	/* --- 4. OBRA DESTAQUE (IMPORTANTE) --- */
-	.featured-artwork {
-		flex-direction: column; /* Coloca a foto em cima e texto embaixo */
-		gap: 20px;
-		margin: 4rem 0;
-		text-align: center; /* Centraliza tudo */
-	}
-
-	.artwork-placeholder {
-		justify-content: center; /* Centraliza a imagem */
-	}
-
-	.description-text {
-		text-align: left; /* Mantém o texto alinhado à esquerda para leitura */
-		padding: 1rem;
-		width: 100%;
-		max-width: 100%;
-	}
-
-	.description-text h2 {
-		text-align: center; /* Título centralizado */
-	}
-
-	/* --- 5. GRID DA GALERIA (CARROSSEL MOBILE NATIVO) --- */
-	.series-conexao-container,
-	.series-terapeutica-container,
-	.fotos-galeria {
-		display: flex; /* Muda de grade para linha */
-		flex-wrap: nowrap; /* Impede que as imagens caiam para a linha de baixo */
-		overflow-x: auto; /* Habilita a rolagem horizontal */
-		scroll-snap-type: x mandatory; /* Ativa o efeito "ímã" do carrossel */
-		gap: 15px; /* Espaço entre os cards */
-		padding-bottom: 20px; /* Espaço para não cortar a sombra do card */
-
-		/* Oculta a barra de rolagem nativa para um visual mais limpo (opcional) */
-		scrollbar-width: none; /* Para Firefox */
-	}
-
-	/* Oculta a barra de rolagem no Chrome, Safari e Edge */
-	.series-conexao-container::-webkit-scrollbar,
-	.series-terapeutica-container::-webkit-scrollbar,
-	.fotos-galeria::-webkit-scrollbar {
-		display: none;
-	}
-
-	.artwork-item,
-	.fotos-galeria img {
-		flex: 0 0 85%; /* Define a base do tamanho */
-		width: 85%; /* Reforça a ordem de largura */
-		flex-shrink: 0; /* PROÍBE o navegador de espremer as fotos */
-		max-width: none;
-		margin: 0;
-		scroll-snap-align: center;
-	}
-
-	/* --- 6. MODAIS (POP-UPS) --- */
-	.modal-content {
-		width: 95%; /* Ocupa quase toda a largura */
-		padding: 1.5rem; /* Menos enchimento interno */
-		margin: 10% auto; /* Margem segura */
-	}
-
-	.brand-title {
-		font-size: 2rem;
-	}
-
-	.galeria-popup-grid img {
-		height: auto; /* Altura automática para não esticar */
-		max-height: 300px;
-	}
-
-	/* Ajuste para o carrossel que criamos antes */
-	.carousel-btn {
-		padding: 0 5px; /* Botões menores */
-		font-size: 1.5rem;
-	}
-
-	.carousel-card img {
-		height: 250px; /* Imagem menor no carrossel mobile */
-	}
-}
-
+/* --- BIOGRAFIA --- */
 .biografia-class {
 	font-family: "Playfair Display", serif;
 	color: var(--brand-color);
@@ -705,6 +347,7 @@ h2[class~="Ambientes"] {
 	margin-bottom: 1.5rem;
 	text-align: center;
 }
+
 .biografia-section {
 	max-width: 1200px;
 	margin: 3rem auto;
@@ -740,8 +383,381 @@ h2[class~="Ambientes"] {
 	text-align: justify;
 }
 
-/* Responsivo: empilha em celular */
+/* --- ESPAÇAMENTO DOS PARÁGRAFOS DA BIOGRAFIA --- */
+.biography-text p {
+	margin-bottom: 1.2rem; /* Cria o respiro entre os blocos de texto */
+}
+
+.biography-text p:last-child {
+	margin-bottom: 0; /* Remove a margem do último parágrafo para não empurrar o layout */
+}
+
+/* --- MODAL DE CONTATO (POP-UP) --- */
+
+.modal-container {
+	display: none; /* Começa escondido */
+	position: fixed;
+	z-index: 2000; /* Fica na frente de tudo, até do menu */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6); /* Fundo preto transparente */
+	justify-content: center; /* Centraliza na tela */
+	align-items: center;
+	backdrop-filter: blur(5px); /* Efeito de desfoque chique no fundo */
+}
+
+.modal-content {
+	background-color: var(--white);
+	padding: 3rem;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 500px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+	animation: fadeIn 0.4s; /* Efeito suave ao abrir */
+}
+
+.modal-content h2 {
+	font-family: "Playfair Display", serif;
+	color: var(--brand-color);
+	font-size: 2.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+	color: var(--accent-color);
+	font-style: italic;
+	margin-bottom: 2rem;
+}
+
+.contact-info p {
+	font-size: 1.1rem;
+	margin: 10px 0;
+	color: var(--text-color);
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+.close-btn {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	top: 15px;
+	right: 25px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.close-btn:hover {
+	color: var(--brand-color);
+}
+
+.modal-action-btn {
+	background-color: var(--brand-color);
+	color: var(--white);
+	border: none;
+	padding: 12px 30px;
+	border-radius: 25px;
+	font-size: 1rem;
+	margin-top: 1.5rem;
+	cursor: pointer;
+	transition: background 0.3s;
+	font-family: "Lato", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.modal-action-btn:hover {
+	background-color: var(--accent-color);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* --- ESTILOS DO MODAL DE GALERIA --- */
+
+.modal-content.modal-large {
+	max-width: 900px;
+	width: 100%;
+	max-height: 100vh; /* Altura máxima de 90% da tela */
+	overflow-y: auto; /* Permite rolar se tiver muitas fotos */
+}
+
+.galeria-popup-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 15px;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+.galeria-popup-grid img {
+	width: 100%;
+	height: 400px; /* Altura fixa para ficarem alinhadas */
+	object-fit: cover;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+}
+
+.galeria-popup-grid img:hover {
+	transform: scale(1.05);
+}
+
+.close-btn-galeria {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.close-btn-galeria:hover {
+	color: var(--brand-color);
+}
+
+.carousel-wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.carousel-view {
+	overflow: hidden; /* Esconde o que está fora da tela */
+	width: 100%;
+	margin: 0 15px; /* Espaço para as setas não ficarem coladas */
+}
+
+.carousel-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out; /* Animação suave */
+	width: 100%;
+}
+
+.carousel-card {
+	min-width: 50%; /* Ocupa exatamente metade da largura (2 por vez) */
+	box-sizing: border-box;
+	padding: 0 10px; /* Espaço entre as duas fotos */
+	text-align: center;
+}
+
+.carousel-card img {
+	width: 100%;
+	height: 350px;
+	object-fit: contain;
+	background-color: #f0f0f0;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-info {
+	margin-top: 15px;
+	padding: 10px;
+	background: #f9f9f9;
+	border-radius: 5px;
+}
+
+.carousel-info h3 {
+	font-family: "Playfair Display", serif;
+	font-size: 1.2rem;
+	color: var(--brand-color);
+	margin-bottom: 5px;
+}
+
+.carousel-info p {
+	font-size: 0.9rem;
+	color: #666;
+	line-height: 1.4;
+	text-align: left;
+}
+
+.carousel-btn {
+	background-color: transparent;
+	border: none;
+	color: var(--accent-color);
+	font-size: 2rem;
+	cursor: pointer;
+	transition: 0.3s;
+	padding: 0 10px;
+}
+
+.carousel-btn:hover {
+	color: var(--brand-color);
+	transform: scale(1.2);
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+   ========================================= */
+
 @media (max-width: 768px) {
+	/* --- 1. AJUSTES GERAIS --- */
+	body {
+		font-size: 16px;
+	}
+
+	.container {
+		padding: 0 15px;
+	}
+
+	/* --- 2. CABEÇALHO (HEADER) --- */
+	.header-section {
+		padding: 2rem 1rem;
+		margin-top: 0;
+		border-radius: 0 0 50px 50px;
+	}
+
+	.brand-title {
+		font-size: 4.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.logo-image {
+		width: 250px;
+		height: 300px;
+		max-width: 80%;
+	}
+
+	.artist-name {
+		font-size: 2rem;
+	}
+
+	.artist-titles,
+	.main-titles h3 {
+		font-size: 2rem;
+	}
+
+	/* --- 3. NAVEGAÇÃO (MENU) --- */
+	.main-nav ul {
+		flex-direction: column;
+		gap: 15px;
+		padding: 10px 0;
+	}
+
+	.main-nav {
+		position: relative;
+	}
+
+	/* --- 4. OBRA DESTAQUE --- */
+	.featured-artwork {
+		flex-direction: column;
+		gap: 20px;
+		margin: 4rem 0;
+		text-align: center;
+	}
+
+	.artwork-placeholder {
+		justify-content: center;
+	}
+
+	.description-text {
+		text-align: left;
+		padding: 1rem;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.description-text h2 {
+		text-align: center;
+	}
+
+	/* --- 5. GRID DA GALERIA (CARROSSEL MOBILE NATIVO) --- */
+	.series-conexao-container,
+	.series-terapeutica-container,
+	.fotos-galeria {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		gap: 15px;
+		padding-bottom: 20px;
+		scrollbar-width: none;
+	}
+
+	.series-conexao-container::-webkit-scrollbar,
+	.series-terapeutica-container::-webkit-scrollbar,
+	.fotos-galeria::-webkit-scrollbar {
+		display: none;
+	}
+
+	.artwork-item,
+	.fotos-galeria img {
+		flex: 0 0 85%;
+		width: 85%;
+		flex-shrink: 0;
+		max-width: none;
+		margin: 0;
+		scroll-snap-align: center;
+	}
+
+	/* --- 6. MODAIS E CARROSSEL --- */
+	.modal-content {
+		width: 95%;
+		padding: 1.5rem;
+		margin: 10% auto;
+	}
+
+	.galeria-popup-grid img {
+		height: auto;
+		max-height: 300px;
+	}
+
+	/* === A MAGIA DO CARROSSEL MOBILE ACONTECE AQUI === */
+	.carousel-wrapper {
+		flex-direction: row; /* Mantém o alinhamento horizontal */
+		position: relative;
+	}
+
+	.carousel-card {
+		min-width: 100%; /* O SEGREDO: Força a ocupar 100% da tela do celular (1 foto por vez) */
+		padding: 0; /* Remove o espaçamento lateral para a foto ficar maior */
+	}
+
+	.carousel-card img {
+		height: 350px; /* Deixa a imagem com uma altura bonita */
+		object-fit: contain;
+	}
+
+	/* Ajuste dos botões (Setas) para ficarem em cima da imagem */
+	.carousel-btn {
+		padding: 5px 12px;
+		font-size: 1.8rem;
+		position: absolute; /* Tira as setas do fluxo e permite colocar onde quisermos */
+		top: 30%; /* Desce as setas até perto do meio da imagem */
+		z-index: 10;
+		background: rgba(
+			255,
+			255,
+			255,
+			0.85
+		); /* Fundo branco semi-transparente */
+		border-radius: 50%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.prev-btn {
+		left: -5px;
+	} /* Cola a seta esquerda na borda */
+	.next-btn {
+		right: -5px;
+	} /* Cola a seta direita na borda */
+
+	/* --- 7. BIOGRAFIA MOBILE --- */
 	.biografia-content {
 		flex-direction: column;
 	}
@@ -750,42 +766,4 @@ h2[class~="Ambientes"] {
 		flex: none;
 		width: 100%;
 	}
-}
-
-.fotos-galeria img {
-	width: 100%;
-	height: 300px;
-	object-fit: cover;
-	border-radius: 8px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	border: 1px solid #e0e0e0; /* borda sutil cinza claro */
-	padding: 8px; /* espaço interno entre a foto e a borda */
-	background-color: var(--white); /* fundo branco no padding */
-}
-.fotos-galeria {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
-	gap: 1.5rem;
-	margin-bottom: 3rem;
-}
-
-/* --- CABEÇALHOS DAS SÉRIES DA GALERIA --- */
-.series-header {
-	text-align: center;
-	margin-top: 3rem;
-	margin-bottom: 2rem;
-}
-
-/* Reduzimos a margem original do título para que o botão fique mais próximo a ele */
-.series-header .series-name {
-	margin-top: 0;
-	margin-bottom: 1rem;
-}
-/* --- ESPAÇAMENTO DOS PARÁGRAFOS DA BIOGRAFIA --- */
-.biography-text p {
-	margin-bottom: 1.2rem; /* Cria o respiro entre os blocos de texto */
-}
-
-.biography-text p:last-child {
-	margin-bottom: 0; /* Remove a margem do último parágrafo para não empurrar o layout */
 }

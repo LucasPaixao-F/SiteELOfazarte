@@ -2,7 +2,7 @@
 const obrasConexao = [
 	{
 		src: "img/serie-conexao/A conexao do ser.png",
-		titulo: "A Conexão do Ser",
+		titulo: "A Conexão do Ser - VENDIDO",
 		tamanho: "60 x 80cm",
 		desc: "A obra de arte representa o momento em que o ser humano consegue, através da meditação, oração e contemplação, uma conexão com o ser superior.",
 		tecnica: "Acrílico sobre Tela",
@@ -26,7 +26,7 @@ const obrasConexao = [
 		titulo: "Os Cinco Elementos II - VENDIDO",
 		tamanho: "60x100cm",
 		tecnica: "Mista",
-		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza..",
+		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza.",
 	},
 	{
 		src: "img/serie-conexao/jardim da alma.png",
@@ -54,7 +54,7 @@ const obrasTerapeutica = [
 	},
 	{
 		src: "img/serie-terapeutica/consciencia.png",
-		titulo: "Consciência",
+		titulo: "Consciência - VENDIDA",
 		tamanho: "70 x 70cm",
 		tecnica: "Acrílico sobre tela",
 		desc: "A obra vem representar o momento de conscientização necessário para a ressignificação do sofrimento em busca do caminho para a cura.",
@@ -155,7 +155,7 @@ function atualizarCarrossel() {
 const btnConexao = document.getElementById("btn-conexao");
 if (btnConexao) {
 	btnConexao.onclick = function () {
-		abrirGaleria("Série Conexão - Obras Extras", obrasConexao);
+		abrirGaleria("Série Conexão", obrasConexao);
 	};
 }
 
@@ -163,7 +163,7 @@ if (btnConexao) {
 const btnTerapeutica = document.getElementById("btn-terapeutica");
 if (btnTerapeutica) {
 	btnTerapeutica.onclick = function () {
-		abrirGaleria("Série Terapêutica - Obras Extras", obrasTerapeutica);
+		abrirGaleria("Série Terapêutica", obrasTerapeutica);
 	};
 }
 

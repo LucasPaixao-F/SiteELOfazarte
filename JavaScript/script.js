@@ -25,11 +25,11 @@ const obrasConexao = [
 
 const obrasTerapeutica = [
 	{
-		src: "img/serie-terapeutica/transformacao.png",
-		titulo: "Transformação",
-		tamanho: "60x90cm",
-		tecnica: "Mista",
-		desc: "Após a Descoberta é possível promover a Transformação tão necessária a um estado de plenitude e paz interior.",
+		src: "img/serie-terapeutica/reconhecimento.png",
+		titulo: "Reconhecimento",
+		tamanho: "50 x 70 cm",
+		tecnica: "Mista / Acrílico sobre Tela",
+		desc: "A obra vem representar o momento de reconhecimento de si e as necessidades de ressignificação dos meus conteúdos internos.",
 	},
 	{
 		src: "img/serie-terapeutica/consciencia.png",
@@ -44,6 +44,27 @@ const obrasTerapeutica = [
 		tamanho: "60x90cm",
 		tecnica: "Mista",
 		desc: " A obra reproduz o movimento necessário para a descoberta de um novo estado de ser, mais livre e conectado com o eu interior.",
+	},
+	{
+		src: "img/serie-terapeutica/busca.jpg",
+		titulo: "Busca",
+		tamanho: "70 x 70 cm",
+		tecnica: "Acrílico sobre Tela",
+		desc: "  Esta obra intitulada “Busca” faz referência ao desejo e vontade de mudança de estado interno, buscando equilíbrio e harmonia. ",
+	},
+	{
+		src: "img/serie-terapeutica/transformacao.png",
+		titulo: "Transformação",
+		tamanho: "60 x 90 cm",
+		tecnica: "Mista / Acrílico sobre Tela",
+		desc: "A Série Terapêutica é o registro visual de uma evolução interior que durou três anos em seis estágios. O que começa como uma Busca silenciosa evolui para o ato de ir além, libertando Sentimentos. Desse extravasar, surge o Reconhecimento de si, que desperta a Consciência e nos conduz à Descoberta de novas potencias.  Este ciclo de cura e autoconhecimento culmina em Transformação – a última obra da série, que celebra o renascimento e a plenitude alcançados através do pincel.",
+	},
+	{
+		src: "img/serie-terapeutica/libertando sentimentos.png",
+		titulo: "Libertando Sentimentos",
+		tamanho: "50 x 70 cm",
+		tecnica: "Mista / Acrílico sobre Tela ",
+		desc: "A obra traz a representação de um processo terapêutico que pela “Busca” percebe-se a necessidade de liberação de traumas e crenças limitantes. ",
 	},
 ];
 

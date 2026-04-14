@@ -639,18 +639,36 @@ h2[class~="Ambientes"] {
 		text-align: center; /* Título centralizado */
 	}
 
-	/* --- 5. GRID DA GALERIA --- */
-	.galeria-grid,
+	/* --- 5. GRID DA GALERIA (CARROSSEL MOBILE NATIVO) --- */
 	.series-conexao-container,
-	.series-terapeutica-container {
-		/* Garante que as colunas se ajustem */
-		grid-template-columns: 1fr; /* 1 coluna por vez em telas muito pequenas */
+	.series-terapeutica-container,
+	.fotos-galeria {
+		display: flex; /* Muda de grade para linha */
+		flex-wrap: nowrap; /* Impede que as imagens caiam para a linha de baixo */
+		overflow-x: auto; /* Habilita a rolagem horizontal */
+		scroll-snap-type: x mandatory; /* Ativa o efeito "ímã" do carrossel */
+		gap: 15px; /* Espaço entre os cards */
+		padding-bottom: 20px; /* Espaço para não cortar a sombra do card */
+
+		/* Oculta a barra de rolagem nativa para um visual mais limpo (opcional) */
+		scrollbar-width: none; /* Para Firefox */
 	}
 
-	/* Centraliza as imagens dentro dos cards no mobile */
-	.artwork-item {
-		max-width: 350px; /* Limita largura para não ficar gigante */
-		margin: 0 auto; /* Centraliza o card */
+	/* Oculta a barra de rolagem no Chrome, Safari e Edge */
+	.series-conexao-container::-webkit-scrollbar,
+	.series-terapeutica-container::-webkit-scrollbar,
+	.fotos-galeria::-webkit-scrollbar {
+		display: none;
+	}
+
+	.artwork-item,
+	.fotos-galeria img {
+		flex: 0 0 85%; /* Define a base do tamanho */
+		width: 85%; /* Reforça a ordem de largura */
+		flex-shrink: 0; /* PROÍBE o navegador de espremer as fotos */
+		max-width: none;
+		margin: 0;
+		scroll-snap-align: center;
 	}
 
 	/* --- 6. MODAIS (POP-UPS) --- */
@@ -762,4 +780,12 @@ h2[class~="Ambientes"] {
 .series-header .series-name {
 	margin-top: 0;
 	margin-bottom: 1rem;
+}
+/* --- ESPAÇAMENTO DOS PARÁGRAFOS DA BIOGRAFIA --- */
+.biography-text p {
+	margin-bottom: 1.2rem; /* Cria o respiro entre os blocos de texto */
+}
+
+.biography-text p:last-child {
+	margin-bottom: 0; /* Remove a margem do último parágrafo para não empurrar o layout */
 }

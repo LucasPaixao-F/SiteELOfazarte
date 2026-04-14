@@ -1,10 +1,38 @@
 // --- DADOS DAS OBRAS (Agora com Título e Descrição) ---
 const obrasConexao = [
 	{
+		src: "img/serie-conexao/A conexao do ser.png",
+		titulo: "A Conexão do Ser",
+		tamanho: "60 x 80cm",
+		desc: "A obra de arte representa o momento em que o ser humano consegue, através da meditação, oração e contemplação, uma conexão com o ser superior.",
+		tecnica: "Acrílico sobre Tela",
+	},
+	{
+		src: "img/serie-conexao/os 5 elementos.png",
+		titulo: "Os Cinco Elementos",
+		tamanho: "60 x 100cm",
+		desc: "Esta obra de arte representa os 5 elementos da criação: fogo, terra, água, ar e éter, carregados de simbolismo.",
+		tecnica: "Acrílico sobre Tela",
+	},
+	{
+		src: "img/serie-conexao/A Criacao da Flora.png",
+		titulo: "A Criação da Flora",
+		tamanho: "70 x 90cm",
+		desc: "A Criação da Flora vem representar o momento criativo mágico do belo surgindo na natureza em uma flor. ",
+		tecnica: "Acrílico sobre Tela",
+	},
+	{
+		src: "img/serie-conexao/os 5 elementos 2.png",
+		titulo: "Os Cinco Elementos II - VENDIDO",
+		tamanho: "60x100cm",
+		tecnica: "Mista",
+		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza..",
+	},
+	{
 		src: "img/serie-conexao/jardim da alma.png",
 		titulo: "Jardim da Alma",
 		tamanho: "70x90cm",
-		desc: "Uma obra delicada que combina formas circulares, miniaturas de flores e folhas com palavras escritas em pequena escala. O título sugere que esses elementos representam a complexidade e a beleza do mundo interior, convidando à contemplação atenta dos detalhes sutis da alma.",
+		desc: "“O Jardim da Alma” é uma obra delicada que combina formas circulares, miniaturas de flores e folhas com palavras escritas em pequena escala. O título sugere que esses elementos representam a complexidade e a beleza do mundo interior, convidando à contemplação atenta dos detalhes sutis da alma. ",
 		tecnica: "Acrílico sobre tela",
 	},
 	{
@@ -13,13 +41,6 @@ const obrasConexao = [
 		tamanho: "50x60cm",
 		desc: "Agênere é uma pintura intuitiva sem esboço prévio, onde o pincel foi guiado pela inspiração e intuição. Agênere faz referência ao momento em que Cristo se tornou tangível aos olhos humanos sobre doação ectoplasmática de Maria de Nazará.",
 		tecnica: "Acrílico sobre tela",
-	},
-	{
-		src: "img/serie-conexao/os 5 elementos 2.png",
-		titulo: "Os Cinco Elementos II - VENDIDO",
-		tamanho: "60x100cm",
-		tecnica: "Mista",
-		desc: "A Criação da Flora vem representar o momento criativo e mágico do belo surgindo na natureza..",
 	},
 ];
 

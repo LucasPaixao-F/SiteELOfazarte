@@ -100,11 +100,18 @@ img {
 
 .brand-title {
 	font-family: "Mistral", cursive;
-	font-size: 6.2rem;
-	font-weight: 100;
+	font-size: 5.2rem;
+	font-weight: normal; /* Removemos o 100, pois pode bugar a renderização de fontes customizadas */
 	letter-spacing: 2px;
 	color: var(--accent-color);
 	margin-bottom: 1rem;
+}
+
+.elo-destaque {
+	font-family: "Arial Nova", sans-serif;
+	font-weight: 650; /* Deixa a fonte mais grossa/imponente */
+	font-size: 4.3rem; /* Ajuste o tamanho específico do "ELO" se precisar */
+	letter-spacing: 0; /* Remove o espaçamento extra apenas do ELO */
 }
 
 .logo-image {
@@ -629,7 +636,7 @@ h2[class~="Ambientes"] {
 
 	.logo-image {
 		width: 250px;
-		height: 300px;
+		height: 289px;
 		max-width: 80%;
 	}
 
